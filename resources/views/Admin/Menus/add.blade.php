@@ -5,17 +5,26 @@
 @endsection --}}
 
 @section('content')
-    <form action="" method="POST">
+    @include('admin.alert')
+
+    <form method="POST">
         <div class="card-body">
             <div class="form-group">
                 <label for="menu">Tên Danh Mục</label>
-                <input type="text" class="form-control" id="menu" placeholder="Enter name">
+                <input type="text" class="form-control" id="menu" name="name" placeholder="Nhập tên danh mục">
+                @error('name')
+                    <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div class="form-group">
                 <label>Danh Mục </label>
                 <select class="form-control" name="parent_id" id="">
                     <option value="0">Danh mục cha</option>
+
+                    @foreach ($menus as $menu)
+                        <option value="{{ $menu->id }}">{{ $menu->name }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -47,6 +56,8 @@
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Tạo danh mục</button>
         </div>
+
+        @csrf
     </form>
 @endsection
 
