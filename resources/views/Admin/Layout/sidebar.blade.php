@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="position: fixed; top: 0">
     <!-- Brand Logo -->
     <a href="/admin" class="brand-link">
         <img src={{ asset('template/admin/dist/img/AdminLTELogo.png') }} alt="AdminLTE Logo"
@@ -15,7 +15,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">Nguyễn Mạnh Hung</a>
             </div>
         </div>
 
@@ -40,29 +40,23 @@
        with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-bars"></i>
                         <p>
-                            Dashboard
+                            Danh Mục
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="../../index.html" class="nav-link">
+                            <a href="/admin/menus/add" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v1</p>
+                                <p>Thêm danh mục</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../../index2.html" class="nav-link">
+                            <a href="/admin/menus/list" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v2</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../../index3.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v3</p>
+                                <p>Danh sách danh mục</p>
                             </a>
                         </li>
                     </ul>
