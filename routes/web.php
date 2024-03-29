@@ -29,6 +29,11 @@ Route::middleware(['auth'])->group(function () {
 
             Route::delete('delete', [MenuController::class, 'delete']);
         });
+
+        // Producte
+        Route::prefix('products')->group(function () {
+
+        });
     });
 
 });
