@@ -22,6 +22,11 @@ Route::middleware(['auth'])->group(function () {
             Route::get('add', [MenuController::class, 'create']);
 
             Route::post('add', [MenuController::class, 'postAdd']);
+
+            Route::get('list', [MenuController::class, 'index']);
+            Route::get('edit/{id}', [MenuController::class, 'show']);
+
+            Route::delete('delete', [MenuController::class, 'delete']);
         });
     });
 

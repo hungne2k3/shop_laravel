@@ -7,4 +7,7 @@
 <!-- AdminLTE App -->
 <script src={{ asset('template/admin/dist/js/adminlte.min.js') }}></script>
 
+{{-- link file js --}}
+<script src={{ asset('template/admin/js/main.js') }}></script>
+
 @yield('footer')

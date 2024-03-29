@@ -14,6 +14,12 @@ class MenuServices
         return Menu::where('parent_id', 0)->get();
     }
 
+    // phan trang
+    public function getAll()
+    {
+        return Menu::orderByDesc('id')->paginate(10);
+    }
+
     public function create($request)
     {
         try {
@@ -32,5 +38,18 @@ class MenuServices
         }
 
         return true;
+    }
+
+    public function delete($request)
+    {
+        $id = (int) $request->input('id');
+
+        $menu = Menu::where('id', $id)->first();
+
+        if ($menu) {
+            return Menu::where('id', $id)->orWhere('parent_id', $id)->delete();
+        }
+
+        return false;
     }
 }
