@@ -40,6 +40,24 @@ class MenuServices
         return true;
     }
 
+    public function update($id, $request): bool
+    {
+        // nếu parent_id vs id thì sẽ bị lỗi khi update vì vậy viết hàm kiểm tra nếu khác nhau thì cho sửa đổi, còn giống nhau thì không cho
+        if ($request->input('parent_id') != $id->id) {
+
+            $id->parent_id = (int) $request->input('parent_id');
+        }
+
+
+        $id->name = (string) $request->input('name');
+        $id->des = (string) $request->input('des');
+        $id->content = (string) $request->input('content');
+        $id->active = (string) $request->input('active');
+
+        $id->save();
+        return true;
+    }
+
     public function delete($request)
     {
         $id = (int) $request->input('id');

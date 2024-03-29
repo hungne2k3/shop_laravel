@@ -9,5 +9,5 @@
 
 {{-- link file js --}}
 <script src={{ asset('template/admin/js/main.js') }}></script>
-
+@toastifyJs
 @yield('footer')

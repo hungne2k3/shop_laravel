@@ -50,10 +50,27 @@ class MenuController extends Controller
 
     public function show(Menu $id)
     {
-        dd($id->name);
-        $title = 'Chỉnh sửa danh mục' . $id->name;
-        $menus = $id;
-        return view('admin.menus.list', compact('title', 'menus'));
+        $title = 'Chỉnh sửa danh mục: ' . $id->name;
+        $menu = $id;
+        $menus = $this->menuServices->getParent();
+        return view('admin.menus.edit', compact('title', 'menus', 'menu'));
+    }
+
+    public function update(Menu $id, Request $request)
+    {
+        $rule = [
+            'name' => 'required',
+        ];
+
+        $message = [
+            'name.required' => 'Name bắt buộc nhập',
+        ];
+
+        $request->validate($rule, $message);
+
+        $this->menuServices->update($id, $request);
+
+        return redirect('/admin/menus/list');
     }
 
     public function delete(Request $request): JsonResponse
