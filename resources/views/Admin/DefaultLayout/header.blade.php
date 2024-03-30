@@ -10,8 +10,9 @@
 <link rel="stylesheet" href={{ asset('template/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}>
 <!-- Theme style -->
 <link rel="stylesheet" href={{ asset('template/admin/dist/css/adminlte.min.css') }}>
-
 <script src="//cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+
+
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @toastifyJs

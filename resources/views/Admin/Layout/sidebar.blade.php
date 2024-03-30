@@ -63,6 +63,31 @@
                     </ul>
                 </li>
 
+                {{-- Product --}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa-solid fa-house"></i>
+                        <p>
+                            Sản phẩm
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/menus/list" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách sản phẩm</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/products/add" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm mới sản phẩm</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
