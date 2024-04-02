@@ -5,6 +5,7 @@
 @endsection --}}
 
 @section('content')
+    @include('admin.alert')
     <form action="" method="POST">
         <div class="card-body">
             <div class="row">
@@ -14,6 +15,10 @@
                         <input type="text" name="name" value="{{ old('name') }}" class="form-control"
                             placeholder="Nhập tên sản phẩm">
                     </div>
+
+                    @error('name')
+                        <span style="color: red">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="col-md-6">
@@ -56,11 +61,15 @@
 
             <div class="form-group">
                 <label for="menu">Ảnh Sản Phẩm</label>
-                <input type="file" class="form-control" id="upload">
+                <input type="file" class="form-control" id="upload" name="image">
                 <div id="image_show">
 
                 </div>
                 <input type="hidden" name="file" id="file">
+
+                @error('image')
+                    <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div class="form-group">
@@ -81,6 +90,7 @@
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
         </div>
+
         @csrf
     </form>
 @endsection

@@ -3,17 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\ProductRequest;
+use App\Http\Services\Product\ProductAdminService;
 use Illuminate\Http\Request;
 use App\Http\Services\Menu\MenuServices;
-use App\Models\Menu;
+
 
 class ProductController extends Controller
 {
     protected $menuServices;
+    protected $productService;
 
-    public function __construct(MenuServices $menuServices)
+    public function __construct(MenuServices $menuServices, ProductAdminService $productService)
     {
         $this->menuServices = $menuServices;
+        $this->productService = $productService;
     }
     /**
      * Display a listing of the resource.
@@ -36,9 +40,11 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+        $this->productService->insert($request);
+
+        return redirect()->back();
     }
 
     /**
