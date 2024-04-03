@@ -7,7 +7,7 @@ use App\Http\Requests\Product\ProductRequest;
 use App\Http\Services\Product\ProductAdminService;
 use Illuminate\Http\Request;
 use App\Http\Services\Menu\MenuServices;
-
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -52,9 +52,13 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product)
     {
-        //
+        return view('admin.products.edit', [
+            'title' => 'Chỉnh sửa sản phẩm',
+            'product' => $product,
+            'menus' => $this->menuServices->getParent()
+        ]);
     }
 
     /**
