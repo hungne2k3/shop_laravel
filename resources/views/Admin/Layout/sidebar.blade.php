@@ -66,7 +66,7 @@
                 {{-- Product --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fa-solid fa-house"></i>
+                        <i class="nav-icon fas fa-store-alt"></i>
                         <p>
                             Sản phẩm
                             <i class="right fas fa-angle-left"></i>
@@ -74,7 +74,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/menus/list" class="nav-link">
+                            <a href="/admin/products/list" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách sản phẩm</p>
                             </a>

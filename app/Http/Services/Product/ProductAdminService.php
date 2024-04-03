@@ -52,4 +52,11 @@ class ProductAdminService
 
         return true;
     }
+
+    // Hiển thị sản phẩm
+    public function get()
+    {
+        // with('menu'): chính là responsive bên file: Posts
+        return Product::with('menu')->paginate(15);
+    }
 }
