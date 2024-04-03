@@ -3,9 +3,9 @@
 
 namespace App\Http\Services\Product;
 
-use App\Models\Menu;
 use App\Models\Product;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
 class ProductAdminService
 {
@@ -58,5 +58,46 @@ class ProductAdminService
     {
         // with('menu'): chính là responsive bên file: Posts
         return Product::with('menu')->paginate(15);
+    }
+
+    //update product
+    public function update($request, $product)
+    {
+        $isValidPrice = $this->isValidPrice($request);
+
+        if ($isValidPrice == false) {
+            // Nếu giá trị không hợp lệ, không cần thực hiện validation và trả về false
+            return false;
+        }
+
+        try {
+            $product->fill($request->input());
+            $product->save();
+
+            Session::flash('success', 'Cập nhập thành công');
+        } catch (\Exception $err) {
+            Session::flash('error', 'Cập nhập thất bại');
+
+            Log::info($err->getMessage());
+
+            return false;
+        }
+
+        return true;
+    }
+
+    public function delete($request)
+    {
+        $id = (int) $request->input('id');
+
+        $product = Product::where('id', $id)->first();
+
+        if ($product) {
+            $product->delete();
+
+            return true;
+        }
+
+        return false;
     }
 }

@@ -34,13 +34,21 @@ Route::middleware(['auth'])->group(function () {
 
         // Producte
         Route::prefix('products')->group(function () {
+
+            // add products
             Route::get('add', [ProductController::class, 'create']);
 
             Route::post('add', [ProductController::class, 'store']);
 
+            // Hiênr thị danh sách
             Route::get('list', [ProductController::class, 'index']);
 
+            // edit danh sach
             Route::get('edit/{product}', [ProductController::class, 'show']);
+
+            Route::post('edit/{product}', [ProductController::class, 'update']);
+
+            Route::delete('delete', [ProductController::class, 'destroy']);
         });
 
         // upload

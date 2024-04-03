@@ -62,26 +62,36 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update($request, $product)
     {
-        //
+        $result = $this->productService->update($request, $product);
+
+        if ($result) {
+            return redirect('/admin/products/list');
+        }
+
+        return redirect()->back();
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $result = $this->productService->delete($request);
+
+        if ($result) {
+            return response()->json([
+                'error' => false,
+                'massage' => 'Xóa thành công sản phẩm'
+            ]);
+        }
+
+        return response()->json([
+            'error' => true
+        ]);
     }
 }
