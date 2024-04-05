@@ -30,7 +30,8 @@
         "files": [
             "app/Helpers/Helper.php",
             "app/Http/Services/UploadServices.php",
-            "app/Http/Services/Product/ProductAdminService.php"
+            "app/Http/Services/Product/ProductAdminService.php",
+            "app/Http/Services/Sliders/SliderService.php"
         ]
     },
     "autoload-dev": {
