@@ -30,4 +30,22 @@ class SliderService
 
         return true;
     }
+
+    public function update($slider, $request)
+    {
+        try {
+            $slider->fill($request->input());
+            $slider->save();
+
+            Session::flash('success', 'Cập nhập slider thành công');
+        } catch (\Exception $e) {
+            Session::flash('error', 'Cập nhập slider thất bại');
+
+            Log::info($e->getMessage());
+
+            return false;
+        }
+
+        return true;
+    }
 }

@@ -64,9 +64,9 @@ Route::middleware(['auth'])->group(function () {
             Route::get('list', [SliderController::class, 'index']);
 
             // // edit slider
-            // Route::get('edit/{slider}', [SliderController::class, 'show']);
+            Route::get('edit/{slider}', [SliderController::class, 'show']);
 
-            // Route::post('edit/{slider}', [SliderController::class, 'update']);
+            Route::post('edit/{slider}', [SliderController::class, 'update']);
 
             // delete slider
             // Route::delete('delete', [SliderController::class, 'destroy']);
