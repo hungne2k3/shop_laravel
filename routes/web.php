@@ -69,7 +69,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('edit/{slider}', [SliderController::class, 'update']);
 
             // delete slider
-            // Route::delete('delete', [SliderController::class, 'destroy']);
+            Route::delete('delete', [SliderController::class, 'destroy']);
         });
 
         // upload
