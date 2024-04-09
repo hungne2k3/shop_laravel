@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\FontEndThemes\ThemeController;
 use Illuminate\Support\Facades\Route;
 
 // Route Login Admin
@@ -76,3 +77,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('upload/services', [UploadController::class, 'store']);
     });
 });
+
+
+Route::get('/', [ThemeController::class, 'index']);
