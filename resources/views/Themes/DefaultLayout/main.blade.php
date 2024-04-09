@@ -5,7 +5,7 @@
     @include('Themes.DefaultLayout.head')
 </head>
 
-<body class="animsition">
+<body> {{-- class="animsition" --}}
 
     <!-- Header -->
     @include('Themes.Layouts.header')
