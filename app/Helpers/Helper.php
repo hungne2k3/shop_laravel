@@ -42,7 +42,7 @@ class Helper
     }
 
     // sử dụng đêj quy để load danh mục sản phẩm 
-    public static function menus($menus, $parent_id = 0)
+    public static function menus($menus, $parent_id = 0): string
     {
         $html = '';
 
@@ -54,6 +54,9 @@ class Helper
                         <a href="/danh-muc/' . $menu->id . '-' . Str::slug($menu->name) . '">
                             ' . $menu->name . '
                         </a>';
+
+                unset($menu[$key])
+                ;
 
                 // kiểm tra nếu isChild là con thì sẽ reder ra
                 if (self::isChild($menus, $menu->id)) {
@@ -71,10 +74,10 @@ class Helper
     }
 
     // viết hàm kiểm tra xem nó có phải cấp 2 hay không
-    public static function isChild($menus, $id)
+    public static function isChild($menus, $id): bool
     {
         foreach ($menus as $menu) {
-            if ($menu->parent_id = $id) {
+            if ($menu->parent_id == $id) {
                 return true;
             }
         }

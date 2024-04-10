@@ -20,6 +20,13 @@ class MenuServices
         return Menu::orderByDesc('id')->paginate(10);
     }
 
+    public function show()
+    {
+        return Menu::select('name', 'id')
+            ->where('parent_id', 0)
+            ->orderByDesc('id')->get();
+    }
+
     public function create($request)
     {
         try {
@@ -47,7 +54,6 @@ class MenuServices
 
             $id->parent_id = (int) $request->input('parent_id');
         }
-
 
         $id->name = (string) $request->input('name');
         $id->des = (string) $request->input('des');

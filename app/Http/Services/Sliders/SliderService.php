@@ -14,6 +14,11 @@ class SliderService
         return Slider::orderByDesc('id')->paginate(15);
     }
 
+    public function show()
+    {
+        return Slider::where('active', 1)->orderByDesc('sort_by')->get();
+    }
+
     public function insert($request)
     {
         try {
