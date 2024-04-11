@@ -38,5 +38,7 @@
         </tbody>
     </table>
 
-    {{ $products->links() }}
+    <div class="card-footer clearfix">
+        {!! $products->links() !!}
+    </div>
 @endsection

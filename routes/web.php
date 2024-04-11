@@ -80,3 +80,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::get('/', [ThemeController::class, 'index']);
+
+// load more
+Route::post('/services/load-product', [ThemeController::class, 'loadProduct']);

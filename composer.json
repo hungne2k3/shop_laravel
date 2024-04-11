@@ -32,7 +32,9 @@
             "app/Http/Services/UploadServices.php",
             "app/Http/Services/Product/ProductAdminService.php",
             "app/Http/Services/Sliders/SliderService.php",
-            "app/Http/View/Composers/MenuComposer.php"
+            "app/Http/View/Composers/MenuComposer.php",
+            "app/Http/Services/Product/ProductServices.php"
+
         ]
     },
     "autoload-dev": {

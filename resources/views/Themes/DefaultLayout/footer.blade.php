@@ -422,3 +422,4 @@
 </script>
 <!--===============================================================================================-->
 <script src="/template/js/main.js"></script>
+<script src="/template/js/public.js"></script>
