@@ -76,4 +76,27 @@ class MenuServices
 
         return false;
     }
+
+    public function getId($id)
+    {
+        // khi ma dua "id" menu vao nếu mà kiểm tra có thì sẽ ok nhận, còn nếu không có thì "firstOrFail()"  sẽ báo lỗi 404
+        return Menu::where('id', $id)
+            ->where('active', 1)->firstOrFail();
+    }
+
+    public function getProducts($menu, $request)
+    {
+        // Tạo một câu truy vấn bắt đầu từ quan hệ products của đối tượng $menu. Câu truy vấn này chọn ra các trường id, name, price, price_sale, và file của các sản phẩm và chỉ lấy những sản phẩm có trạng thái active bằng 1.
+        $query = $menu->products()
+            ->select('id', 'name', 'price', 'price_sale', 'file')
+            ->Where('active', 1);
+
+        // Kiểm tra nếu có tham số price được truyền vào từ request, thì sẽ sắp xếp kết quả theo trường price theo chiều giảm dần hoặc tăng dần tùy thuộc vào giá trị của tham số price
+        if ($request->input('price')) {
+            $query->orderByDesc('price', $request->input('price'));
+        }
+
+        return $query->orderByDesc('id')
+            ->paginate(12)->withQueryString();
+    }
 }

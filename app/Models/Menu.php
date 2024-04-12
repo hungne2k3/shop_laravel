@@ -16,4 +16,11 @@ class Menu extends Model
         'content',
         'active',
     ];
+
+    // tạo ra các relationships(mối quan hệ, 1 nhiều, hay 1 to 1..)
+    public function products()
+    {
+        // 1 danh mục có nhiều sản phẩm
+        return $this->hasMany(Product::class, 'menu_id', 'id');
+    }
 }

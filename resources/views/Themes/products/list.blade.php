@@ -33,6 +33,7 @@
                         </a>
                     </div>
                 </div>
+
             </div>
         </div>
     @endforeach
