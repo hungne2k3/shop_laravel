@@ -51,7 +51,7 @@ class Helper
                 // cấp 1
                 $html .= '
                     <li>
-                        <a href="/danh-muc/' . $menu->id . '-' . Str::slug($menu->name) . '">
+                        <a href="/danh-muc/' . $menu->id . '-' . Str::slug($menu->name) . '.html">
                             ' . $menu->name . '
                         </a>';
 

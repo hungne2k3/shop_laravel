@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\FontEndThemes\Categoty\CategoryController;
+use App\Http\Controllers\FontEndThemes\Product\ProductsController;
 use App\Http\Controllers\FontEndThemes\ThemeController;
 use Illuminate\Support\Facades\Route;
 
@@ -86,4 +87,7 @@ Route::get('/', [ThemeController::class, 'index']);
 Route::post('/services/load-product', [ThemeController::class, 'loadProduct']);
 
 // Trang danh muc
-Route::get('danh-muc/{id}-{slug}.html', [CategoryController::class, 'index']);
+Route::get('/danh-muc/{id}-{slug}.html', [CategoryController::class, 'index']);
+
+// Trang sản phẩm
+Route::get('/san-pham/{id}-{slug}.html', [ProductsController::class, 'index']);

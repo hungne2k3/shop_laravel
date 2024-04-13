@@ -1,4 +1,5 @@
-@extends('main')
+@extends('Themes.DefaultLayout.main')
+
 @section('content')
     <div class="container p-t-80">
         <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
@@ -329,18 +330,6 @@
             <span class="stext-107 cl6 p-lr-25">
                 Categories: {{ $product->menu->name }}
             </span>
-        </div>
-    </section>
-
-    <section class="sec-relate-product bg0 p-t-45 p-b-105">
-        <div class="container">
-            <div class="p-b-45">
-                <h3 class="ltext-106 cl5 txt-center">
-                    Related Products
-                </h3>
-            </div>
-
-            @include('products.list')
         </div>
     </section>
 @endsection

@@ -19,4 +19,23 @@ class ProductService
             ->limit(self::LIMIT)
             ->get();
     }
+
+    // show trang san pham
+    public function show($id)
+    {
+        return Product::where('id', $id)
+            ->where('active', 1)
+            ->with('menu')
+            ->firstOrFail();
+    }
+
+    public function more($id)
+    {
+        return Product::select('id', 'name', 'price', 'price_sale', 'file')
+            ->where('active', 1)
+            ->orderByDesc('id')
+            ->where('id', '!==', $id)
+            ->limit(8)
+            ->get();
+    }
 }

@@ -24,8 +24,8 @@ class CategoryController extends Controller
 
         return view('Themes.menu.menu', [
             'title' => $menu->name,
-            'products' => $products,
-            'menu' => $menu
+            'menu' => $menu,
+            'products' => $products
         ]);
     }
 }

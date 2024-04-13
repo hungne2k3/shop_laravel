@@ -27,7 +27,7 @@ class ThemeController extends Controller
         $sliders = $this->slider->show();
         $menus = $this->menus->show();
         $products = $this->product->get();
-        return view('Themes.DefaultLayout.main', compact('title', 'sliders', 'menus', 'products'));
+        return view('Themes.Layouts.home', compact('title', 'sliders', 'menus', 'products'));
     }
 
     public function loadProduct(Request $request)
