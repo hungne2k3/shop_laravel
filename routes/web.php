@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\FontEndThemes\Cart\CartController;
 use App\Http\Controllers\FontEndThemes\Categoty\CategoryController;
 use App\Http\Controllers\FontEndThemes\Product\ProductsController;
 use App\Http\Controllers\FontEndThemes\ThemeController;
@@ -91,3 +92,6 @@ Route::get('/danh-muc/{id}-{slug}.html', [CategoryController::class, 'index']);
 
 // Trang sản phẩm
 Route::get('/san-pham/{id}-{slug}.html', [ProductsController::class, 'index']);
+
+// Giỏ hàng
+Route::post('/add-cart', [CartController::class, 'index']);
