@@ -2,6 +2,7 @@
 
 namespace App\Http\Services\Cart;
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Arr;
 
@@ -35,18 +36,40 @@ class CartService
 
         // nếu tồn tại thì cập nhập còn chưa tồn tại thì tạo 
         if ($exists) {
-            $cartsNew = $carts[$product_id] + $qly;
+            $carts[$product_id] = $carts[$product_id] + $qly;
 
-            Session::put('carts', [
-                $product_id => $cartsNew
-            ]);
+            Session::put('carts', $carts);
 
             return true;
         }
 
-        Session::put('carts', [
-            $product_id => $qly
-        ]);
+        $carts[$product_id] = $qly;
+        Session::put('carts', $carts);
+
+        return true;
+    }
+
+    public function getProducts()
+    {
+        // lấy ra toàn bộ cart
+        $carts = Session::get('carts');
+
+        if (is_null($carts)) {
+            return [];
+        }
+
+        // kiểm tra vị trí cuả sản phẩm
+        $productId = array_keys($carts);
+
+        return Product::select('id', 'name', 'price', 'price_sale', 'file')
+            ->where('active', 1)
+            ->whereIn('id', $productId)
+            ->get();
+    }
+
+    public function update($request)
+    {
+        Session::put('carts', $request->input('num-product'));
 
         return true;
     }

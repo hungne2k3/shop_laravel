@@ -108,8 +108,9 @@
                                                 Add to cart
                                             </button>
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                            @csrf
                                         @endif
-                                        @csrf
+
                                     </form>
                                 </div>
                             </div>
