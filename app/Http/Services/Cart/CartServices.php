@@ -73,4 +73,16 @@ class CartService
 
         return true;
     }
+
+    public function remove($id)
+    {
+        $carts = Session::get('carts');
+
+        // xóa mảng
+        unset($carts[$id]);
+
+        // cập nhập lại id
+        Session::put('carts', $carts);
+        return true;
+    }
 }
