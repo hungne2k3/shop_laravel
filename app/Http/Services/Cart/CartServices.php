@@ -2,9 +2,12 @@
 
 namespace App\Http\Services\Cart;
 
+use App\Models\Cart;
+use App\Models\Customer;
 use App\Models\Product;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 
 class CartService
 {
@@ -84,5 +87,69 @@ class CartService
         // cập nhập lại id
         Session::put('carts', $carts);
         return true;
+    }
+
+    public function buyCart($request)
+    {
+        try {
+            // trong quá trình chạy kiểm tra try catch mà lỗi thì sẽ ro back lại còn nếu không lỗi thì sẽ commiit
+            DB::beginTransaction();
+
+            // nếu k có sản phẩm nào trong gio hang thì trả về false
+            $carts = Session::get('carts');
+
+            if (is_null($carts)) {
+                return false;
+            }
+
+            $customer = Customer::create([
+                'name' => $request->input('name'),
+                'phone' => $request->input('phone'),
+                'email' => $request->input('email'),
+                'address' => $request->input('address'),
+                'content' => $request->input('content'),
+            ]);
+
+
+            // lấy toàn bộ thông tin chính là giá tiền (lấy giá tiền hiện tại) 
+            $this->infoProductCarts($carts, $customer->id);
+
+            DB::commit();
+            Session::flash('success', 'Đặt hàng thành công');
+            Session::forget('carts');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Session::flash('error', 'Đặt hàng lỗi, vui longg thử lại');
+
+            return false;
+        }
+
+        return true;
+    }
+
+    protected function infoProductCarts($carts, $customer_id)
+    {
+        // lấy thông tin sản phẩm
+        $productId = array_keys($carts);
+
+        $products = Product::select('id', 'name', 'price', 'price_sale', 'file')
+            ->where('active', 1)
+            ->whereIn('id', $productId)
+            ->get();
+
+        $data = [];
+
+        // duyệt mảng để trả về thông tin sản phẩm
+        foreach ($products as $product) {
+            // thông tin để chuyền vào 1 data
+            $data[] = [
+                'customer_id' => $customer_id,
+                'product_id' => $product->id,
+                'pty' => $carts[$product->id],
+                'price' => $product->price_sale != 0 ? $product->price_sale : $product->price,
+            ];
+        }
+
+        Cart::insert($data);
     }
 }

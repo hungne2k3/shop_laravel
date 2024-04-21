@@ -2,6 +2,7 @@
 
 @section('content')
     <form class="bg0 p-t-130 p-b-85" method="POST">
+        @include('Admin.alert')
         @if (count($products) !== 0)
             <div class="container">
                 <div class="row">
@@ -111,60 +112,42 @@
                                 </div>
                             </div>
 
-                            <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-                                <div class="size-208 w-full-ssm">
-                                    <span class="stext-110 cl2">
-                                        Shipping:
-                                    </span>
-                                </div>
-
-                                <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-                                    <p class="stext-111 cl6 p-t-2">
-                                        There are no shipping methods available. Please double check your address, or
-                                        contact us
-                                        if you need any help.
-                                    </p>
-
+                            <div class="bor12 p-t-15 p-b-30">
+                                <div class="size-100 p-r-18 p-r-0-sm w-full-ssm">
                                     <div class="p-t-15">
                                         <span class="stext-112 cl8">
-                                            Calculate Shipping
+                                            THÔNG TIN KHÁCH HÀNG
                                         </span>
 
-                                        <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                                            <select class="js-select2 select2-hidden-accessible" name="time"
-                                                tabindex="-1" aria-hidden="true">
-                                                <option>Select a country...</option>
-                                                <option>USA</option>
-                                                <option>UK</option>
-                                            </select><span class="select2 select2-container select2-container--default"
-                                                dir="ltr" style="width: 142.4px;"><span class="selection"><span
-                                                        class="select2-selection select2-selection--single" role="combobox"
-                                                        aria-haspopup="true" aria-expanded="false" tabindex="0"
-                                                        aria-labelledby="select2-time-yv-container"><span
-                                                            class="select2-selection__rendered"
-                                                            id="select2-time-yv-container"
-                                                            title="Select a country...">Select a country...</span><span
-                                                            class="select2-selection__arrow" role="presentation"><b
-                                                                role="presentation"></b></span></span></span><span
-                                                    class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                            <div class="dropDownSelect2"></div>
+                                        <div class="bor8 bg0 m-b-12">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name"
+                                                required placeholder="Tên khách hàng">
                                         </div>
 
                                         <div class="bor8 bg0 m-b-12">
-                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state"
-                                                placeholder="State /  country">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="number" name="phone"
+                                                required placeholder="Số điện thoại">
                                         </div>
 
-                                        <div class="bor8 bg0 m-b-22">
-                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
-                                                name="postcode" placeholder="Postcode / Zip">
+                                        <div class="bor8 bg0 m-b-12">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email" name="email"
+                                                placeholder="Email">
                                         </div>
 
-                                        <div class="flex-w">
-                                            <div
+                                        <div class="bor8 bg0 m-b-12">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address"
+                                                required placeholder="Địa chỉ khách hàng">
+                                        </div>
+
+                                        <div class="bor8 bg0 m-b-12">
+                                            <textarea class="stext-111 cl8 plh3 size-111 p-lr-15" name="content"></textarea>
+                                        </div>
+
+                                        <div class="d-flex justify-content-end">
+                                            <button type="submit"
                                                 class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-                                                Update Totals
-                                            </div>
+                                                Đăng ký
+                                            </button>
                                         </div>
 
                                     </div>

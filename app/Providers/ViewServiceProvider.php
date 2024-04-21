@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\View\Composers\CartComposer;
 use App\Http\View\Composers\MenuComposer;
 use Illuminate\Support\Facades;
 use Illuminate\Support\ServiceProvider;
@@ -26,5 +27,8 @@ class ViewServiceProvider extends ServiceProvider
     {
         // truyền khai báo MenuComposer sang (Hiển thị header)
         view::composer('Themes.Layouts.header', MenuComposer::class);
+
+        // truyền khai báo CartComposer sang (Hiển thị Cart)
+        view::composer('Themes.Layouts.cart', CartComposer::class);
     }
 }

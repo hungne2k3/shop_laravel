@@ -54,4 +54,11 @@ class CartController extends Controller
 
         return redirect('/carts');
     }
+
+    public function buyCart(Request $request)
+    {
+        $this->cartService->buyCart($request);
+
+        return redirect()->back();
+    }
 }
