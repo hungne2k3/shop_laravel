@@ -23,7 +23,7 @@ class ThemeController extends Controller
 
     public function index()
     {
-        $title = 'Shop';
+        $title = 'M.O.I Mỹ Phẩm';
         $sliders = $this->slider->show();
         $menus = $this->menus->show();
         $products = $this->product->get();

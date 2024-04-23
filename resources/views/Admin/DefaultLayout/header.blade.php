@@ -12,8 +12,8 @@
 <link rel="stylesheet" href={{ asset('template/admin/dist/css/adminlte.min.css') }}>
 <script src="//cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
 
-
-
+<!-- IonIcons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @toastifyJs
 

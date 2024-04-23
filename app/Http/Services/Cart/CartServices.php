@@ -2,6 +2,7 @@
 
 namespace App\Http\Services\Cart;
 
+use App\Jobs\SendMail;
 use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Product;
@@ -116,6 +117,10 @@ class CartService
 
             DB::commit();
             Session::flash('success', 'Đặt hàng thành công');
+
+            // Gửi Email: khi mà đặt hàng thành công thì sẽ gửi mail "dispatch()"
+            SendMail::dispatch($request->input('email'))->delay(now()->addSeconds(2));
+
             Session::forget('carts');
         } catch (\Exception $e) {
             DB::rollBack();
@@ -151,5 +156,20 @@ class CartService
         }
 
         Cart::insert($data);
+    }
+
+    // Admin Cart
+    public function getCustomer()
+    {
+        return Customer::orderByDesc('id')->paginate(15);
+    }
+
+    public function getProductForCart($customer)
+    {
+        return $customer->carts()->with([
+            'product' => function ($query) {
+                $query->select('id', 'name', 'file');
+            }
+        ])->get();
     }
 }

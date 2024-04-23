@@ -43,16 +43,16 @@
                     <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
                         <!-- Block1 -->
                         <div class="block1 wrap-pic-w">
-                            <img src="/template/images/banner-01.jpg" alt="IMG-BANNER">
+                            <img src="/template/images/img/banner.jpg" alt="IMG-BANNER">
 
                             <a href="/danh-muc/{{ $menu->id }}-{{ \Str::slug($menu->name, '-') }}.html"
                                 class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                                 <div class="block1-txt-child1 flex-col-l">
-                                    <span class="block1-name ltext-102 trans-04 p-b-8">
+                                    <span class="block1-name ltext-102 trans-04 p-b-8" style="color: #fff">
                                         {{ $menu->name }}
                                     </span>
 
-                                    <span class="block1-info stext-102 trans-04">
+                                    <span class="block1-info stext-102 trans-04" style="color: #fff">
                                         HOT 2024
                                     </span>
                                 </div>
@@ -75,7 +75,7 @@
         <div class="container">
             <div class="p-b-10">
                 <h3 class="ltext-103 cl5">
-                    Product Overview
+                    Sản Phẩm
                 </h3>
             </div>
 
@@ -86,23 +86,23 @@
                     </button>
 
                     <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-                        Women
+                        DA BY M.O.I
                     </button>
 
                     <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-                        Men
+                        PHẤN TRANG ĐIỂM
                     </button>
 
                     <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-                        Bag
+                        SON MÔI
                     </button>
 
                     <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-                        Shoes
+                        MẶT NẠ
                     </button>
 
                     <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-                        Watches
+                        CHÌ KẺ MÀY
                     </button>
                 </div>
 

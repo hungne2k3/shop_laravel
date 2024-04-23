@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CartsController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
@@ -78,6 +79,11 @@ Route::middleware(['auth'])->group(function () {
 
         // upload
         Route::post('upload/services', [UploadController::class, 'store']);
+
+        // Cart
+        Route::get('customer', [CartsController::class, 'index']);
+
+        Route::get('customer/view/{customer}', [CartsController::class, 'show']);
     });
 });
 

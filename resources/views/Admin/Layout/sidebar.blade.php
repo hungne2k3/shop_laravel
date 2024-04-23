@@ -15,7 +15,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Nguyễn Mạnh Hung</a>
+                <a href="#" class="d-block">Hoàng Minh Quân</a>
             </div>
         </div>
 
@@ -110,6 +110,25 @@
                             <a href="/admin/sliders/add" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm mới slider</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{-- cart --}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-cart-plus"></i>
+                        <p>
+                            Giỏ Hàng
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/customer" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách đơn hàng</p>
                             </a>
                         </li>
                     </ul>
