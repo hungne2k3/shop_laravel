@@ -67,7 +67,7 @@
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.2.0
             </div>
-            <strong>Hoàng Minh Quân <a href="https://adminlte.io">Admin</a>.</strong> All rights
+            <strong>Nguyễn Mạnh Hùng <a href="https://adminlte.io">Admin</a>.</strong> All rights
             reserved.
         </footer>
 

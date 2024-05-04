@@ -15,7 +15,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Hoàng Minh Quân</a>
+                <a href="#" class="d-block">NGUYỄN MẠNH HÙNG</a>
             </div>
         </div>
 

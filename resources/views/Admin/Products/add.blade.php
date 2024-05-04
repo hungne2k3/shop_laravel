@@ -62,6 +62,7 @@
             <div class="form-group">
                 <label for="menu">Ảnh Sản Phẩm</label>
                 <input type="file" class="form-control" id="upload" name="image">
+
                 <div id="image_show">
 
                 </div>

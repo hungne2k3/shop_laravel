@@ -19,7 +19,7 @@
                     <ul class="main-menu">
                         {{-- sử dụng đệ quy --}}
                         <li class="active-menu">
-                            <a href="">Trang chủ</a>
+                            <a href="/">Trang chủ</a>
                         </li>
 
                         {!! $menus !!}
@@ -94,7 +94,7 @@
         <ul class="main-menu-m">
             {{-- sử dụng đệ quy --}}
             <li class="active-menu">
-                <a href="">Trang chủ</a>
+                <a href="/">Trang chủ</a>
             </li>
 
             {!! $menus !!}
