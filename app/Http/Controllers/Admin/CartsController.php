@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Services\Cart\CartService;
+use App\Http\Services\Cart\CartServices;
 use App\Models\Customer;
 
 class CartsController extends Controller
 {
     protected $carts;
 
-    public function __construct(CartService $carts)
+    public function __construct(CartServices $carts)
     {
         $this->carts = $carts;
     }

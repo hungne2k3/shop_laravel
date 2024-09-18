@@ -4,14 +4,14 @@ namespace App\Http\Controllers\FontEndThemes\Cart;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Services\Cart\CartService;
+use App\Http\Services\Cart\CartServices;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
     protected $cartService;
 
-    public function __construct(CartService $cartService)
+    public function __construct(CartServices $cartService)
     {
         $this->cartService = $cartService;
     }
